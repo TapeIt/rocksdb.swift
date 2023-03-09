@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'librocksdb'
-  s.version          = '6.4.15'
+  s.version          = '6.4.16'
   s.summary          = 'rocksdb bindings for Swift. Cocoapods and SPM support. Linux support.'
 
   s.description      = <<-DESC
@@ -9,10 +9,10 @@ Works on iOS, macOS, tvOS, watchOS and Linux. Major and Minor Version numbers ar
 the upstream rocksdb library. Patch version varies.
                        DESC
 
-  s.homepage         = 'https://github.com/Ybrin/rocksdb.swift'
+  s.homepage         = 'https://github.com/TapeIt/rocksdb.swift'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Koray Koska' => 'koray@koska.at' }
-  s.source           = { :git => 'https://github.com/Ybrin/rocksdb.swift.git', :tag => "v#{s.version.to_s}", :submodules => true }
+  s.source           = { :git => 'https://github.com/TapeIt/rocksdb.swift.git', :tag => "v#{s.version.to_s}", :submodules => true }
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'

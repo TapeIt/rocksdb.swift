@@ -1,7 +1,6 @@
 # :rocket: rocksdb.swift
 
-[![Build Status](https://travis-ci.com/Ybrin/rocksdb.swift.svg?branch=master)](https://travis-ci.com/Ybrin/rocksdb.swift)
-[![codecov](https://codecov.io/gh/Ybrin/rocksdb.swift/branch/master/graph/badge.svg)](https://codecov.io/gh/Ybrin/rocksdb.swift)
+This is a fork of koraykoska's rocksdb.swift. It includes a compilation fix for RocksDB to compile on Apple Silicon.
 
 This library provides Swift bindings for rocksdb as well as Swifty bindings.
 
@@ -25,7 +24,7 @@ RocksDB is compatible with Swift Package Manager (Swift 5 and above). Simply add
 
 ```Swift
 dependencies: [
-    .package(url: "https://github.com/Ybrin/rocksdb.swift.git", from: "6.4.15")
+    .package(url: "https://github.com/TapeIt/rocksdb.swift.git", from: "6.4.16")
 ]
 ```
 
