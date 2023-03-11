@@ -12,11 +12,9 @@ You can use this library with Swift Package Manager and Cocoapods on iOS, macOS,
 
 ### CocoaPods
 
-RocksDB is available through [CocoaPods](http://cocoapods.org/). To install it, simply add the following line to your Podfile:
-
-```Ruby
-pod 'rocksdb.swift'
-```
+koraykoska's version has support for CocoaPods, but this fork doesn't. If you require it, it should be relatively
+straightforward to add by diffing the changes this fork has done to Package.swift with koraykoska's branch and changing
+the podspec files accordingly.
 
 ### Swift Package Manager
 

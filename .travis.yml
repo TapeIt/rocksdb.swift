@@ -15,12 +15,8 @@ sudo: required
 
 osx_image: xcode11.2
 xcode_sdk: iphonesimulator13.2
-# cache: cocoapods
-# podfile: Example/Podfile
 before_install:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then instruments -s devices; fi
-  - if [ $TRAVIS_OS_NAME == "osx" ]; then gem install cocoapods; fi # Since Travis is not always on latest version
-  - if [ $TRAVIS_OS_NAME == "osx" ]; then pod repo update; fi
   - |
     if [ $TRAVIS_OS_NAME == "osx" ]; then
       echo "macOS build. swiftenv will not be installed.";
@@ -36,10 +32,6 @@ script:
   # Output something every 10 minutes or Travis kills the job
   - while sleep 60; do echo "=====[ $SECONDS seconds still running ]====="; done &
   # Actual script
-  - |
-    if [ $TRAVIS_OS_NAME == "osx" ]; then
-      pod spec lint --allow-warnings librocksdb.podspec;
-    fi
   - swift build
   - swift build -c release
   - |
