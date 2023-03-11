@@ -25,7 +25,7 @@ let package = Package(
             name: "librocksdb",
             path: "Sources/librocksdb",
             exclude: [
-                // this list was generated via  `ls -1 upstream/**/*{bench,mock,test}*.cc` in `Sources/librocksdb/`.
+                // this list was generated via  `ls -1 upstream/**/*{bench,test}*.cc` in `Sources/librocksdb/`.
                 "upstream/cache/cache_bench.cc",
                 "upstream/cache/cache_bench_tool.cc",
                 "upstream/cache/cache_reservation_manager_test.cc",
@@ -129,7 +129,6 @@ let package = Package(
                 "upstream/env/env_basic_test.cc",
                 "upstream/env/env_test.cc",
                 "upstream/env/io_posix_test.cc",
-                "upstream/env/mock_env.cc",
                 "upstream/env/mock_env_test.cc",
                 "upstream/env/mock_env_test.cc",
                 "upstream/file/delete_scheduler_test.cc",
@@ -169,11 +168,9 @@ let package = Package(
                 "upstream/table/cuckoo/cuckoo_table_builder_test.cc",
                 "upstream/table/cuckoo/cuckoo_table_reader_test.cc",
                 "upstream/table/merger_test.cc",
-                "upstream/table/mock_table.cc",
                 "upstream/table/sst_file_reader_test.cc",
                 "upstream/table/table_reader_bench.cc",
                 "upstream/table/table_test.cc",
-                "upstream/test_util/mock_time_env.cc",
                 "upstream/test_util/testharness.cc",
                 "upstream/test_util/testutil.cc",
                 "upstream/test_util/testutil_test.cc",
@@ -254,6 +251,9 @@ let package = Package(
 
                 // PowerPC assembly
                 "upstream/util/crc32c_ppc_asm.S",
+
+                // This relies on gtest, and it doesn't seem like we need it. We do need mock_env, though.
+                "upstream/table/mock_table.cc",
             ],
             sources: [
                 "upstream/cache",
@@ -264,6 +264,7 @@ let package = Package(
                 "upstream/logging",
                 "upstream/memory",
                 "upstream/memtable",
+                "upstream/monitoring",
                 "upstream/options",
                 "upstream/port",
                 "upstream/table",
@@ -271,6 +272,9 @@ let package = Package(
                 "upstream/trace_replay",
                 "upstream/util",
                 "upstream/utilities",
+
+                // workaround for the cmake-configured build_version.cc.in
+                "patches",
             ],
             publicHeadersPath: "public_headers",
             cxxSettings: [
@@ -278,6 +282,8 @@ let package = Package(
                 .headerSearchPath("upstream/include"),
                 .define("ROCKSDB_PLATFORM_POSIX"),
                 .define("ROCKSDB_LIB_IO_POSIX"),
+                .define("NPERF_CONTEXT"),
+                .define("NIOSTATS_CONTEXT"),
                 .define("PORTABLE"),
                 .define(osEnvRocks),
             ]),
