@@ -1,6 +1,6 @@
 # :rocket: rocksdb.swift
 
-This is a fork of koraykoska's rocksdb.swift. It includes a compilation fix for RocksDB to compile on Apple Silicon.
+This is a fork of koraykoska's rocksdb.swift. It updates RocksDB to 6.29.5 to compile on Apple Silicon.
 
 This library provides Swift bindings for rocksdb as well as Swifty bindings.
 
