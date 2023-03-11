@@ -24,7 +24,7 @@ RocksDB is compatible with Swift Package Manager (Swift 5 and above). Simply add
 
 ```Swift
 dependencies: [
-    .package(url: "https://github.com/TapeIt/rocksdb.swift.git", from: "6.4.16")
+    .package(url: "https://github.com/TapeIt/rocksdb.swift.git", from: "6.29.5")
 ]
 ```
 
@@ -44,7 +44,7 @@ targets: [
 After the installation you can import RocksDB in your .swift files.
 
 ```Swift
-import Web3
+import RocksDB
 ```
 
 ## Usage
