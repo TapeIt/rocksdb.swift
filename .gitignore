@@ -50,4 +50,6 @@ DerivedData/
 # *** End Swift Package Manager ***
 
 # Build assets
-RocksDB.xcframework*
+*.xcframework*
+*.zip
+*.sha256
