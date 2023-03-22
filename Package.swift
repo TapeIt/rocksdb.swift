@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -287,14 +287,14 @@ let package = Package(
                 .define("PORTABLE"),
                 .define(osEnvRocks),
             ]),
-        .target(
-            name: "RocksDB",
-            dependencies: ["librocksdb"],
-            path: "Sources/RocksDB"),
+        // .target(
+        //     name: "RocksDB",
+        //     dependencies: ["librocksdb"],
+        //     path: "Sources/RocksDB"),
         .binaryTarget(
             name: "RocksDB",
             url: "https://github.com/TapeIt/rocksdb.swift/releases/download/v6.29.5/RocksDB.xcframework.zip",
-            checksum: "c0533ee90f256d6856737e2d98f2369dd989e228892f13fbf6836d57d5ed301f")
+                checksum: "c0533ee90f256d6856737e2d98f2369dd989e228892f13fbf6836d57d5ed301f"),
         .testTarget(
             name: "RocksDBTests",
             dependencies: ["RocksDB"]),
