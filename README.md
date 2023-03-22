@@ -1,6 +1,7 @@
 # :rocket: rocksdb.swift
 
-This is a fork of koraykoska's rocksdb.swift. It updates RocksDB to 6.29.5 to compile on Apple Silicon.
+This is a fork of koraykoska's rocksdb.swift. It updates RocksDB to 6.29.5 to compile on Apple Silicon, and comes with a prebuilt binary xcframework to reduce compile times. In our project, RocksDB was responsible for around 70% of build
+times.
 
 This library provides Swift bindings for rocksdb as well as Swifty bindings.
 
@@ -48,6 +49,19 @@ import RocksDB
 ## Usage
 
 For now, check out the tests for examples on how to use this wrapper. Contributions to add more examples are happily welcome.
+
+## Generating the binary xcframework
+1. Install [https://swiftpackageindex.com/unsignedapps/swift-create-xcframework](swift-create-xcframework).
+2. Run
+
+```sh
+swift create-xcframework --xc-setting HEADER_SEARCH_PATHS='$(HEADER_SEARCH_PATHS) $(SRCROOT)/Sources/librocksdb/upstream $(SRCROOT)/Sources/librocksdb/upstream/include'
+```
+
+The additional header search path settings are necessary because of a bug in how Xcode creates a project from
+the Package.swift file - the headerSearchPath directive isn't expanded properly, so we redefine them here.
+
+We didn't need watchOS or tvOS, so we omitted them in the framework to reduce download size (by specifying `--platform ios --platform macos --platform maccatalyst`).
 
 ## Versioning
 

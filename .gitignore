@@ -48,3 +48,6 @@ DerivedData/
 *.xcodeproj
 
 # *** End Swift Package Manager ***
+
+# Build assets
+RocksDB.xcframework*
