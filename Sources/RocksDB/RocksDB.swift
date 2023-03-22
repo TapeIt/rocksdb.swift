@@ -1,6 +1,6 @@
 import Foundation
 #if canImport(librocksdb)
-    @_implementationOnly import librocksdb
+    import librocksdb
 #endif
 #if os(Linux)
 import Glibc
