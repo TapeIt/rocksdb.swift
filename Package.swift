@@ -16,7 +16,7 @@ let package = Package(
     products: [
         .library(
             name: "RocksDB",
-            targets: ["RocksDB"]
+            targets: ["RocksDB", "librocksdb"]
         ),
     ],
     dependencies: [],
@@ -350,7 +350,7 @@ let package = Package(
         .binaryTarget(
             name: "RocksDB",
             url: "https://github.com/TapeIt/rocksdb.swift/releases/download/v6.29.5/RocksDB.zip",
-            checksum: "aeb246ad26709aebfe08a824d27ffd4e6293b9aa64290eae646de2147032b37e"),
+            checksum: "94a54269dcad4878fdd3d9f9089a7270a512d20f488dc3f0b813168d66f182d4"),
         .testTarget(
             name: "RocksDBTests",
             dependencies: ["RocksDB"]),
