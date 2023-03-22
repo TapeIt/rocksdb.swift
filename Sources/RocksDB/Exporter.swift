@@ -1,3 +1,3 @@
 #if canImport(librocksdb)
-    @_exported import librocksdb
+    @_implementationOnly import librocksdb
 #endif
